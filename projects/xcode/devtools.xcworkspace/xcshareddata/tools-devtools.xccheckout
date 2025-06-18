@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B335027D-DB9F-4778-9ED1-1B5F586F63FD</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1948a2ff-04f8-4b46-9fb4-fd55e2dfcdb4</key>
+		<string>https://nibsa.repositoryhosting.com/svn/nibsa_lib-auframework</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1948a2ff-04f8-4b46-9fb4-fd55e2dfcdb4</key>
+		<string>lib-auframework/</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1948a2ff-04f8-4b46-9fb4-fd55e2dfcdb4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1948a2ff-04f8-4b46-9fb4-fd55e2dfcdb4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lib-auframework</string>
+		</dict>
+	</array>
+</dict>
+</plist>

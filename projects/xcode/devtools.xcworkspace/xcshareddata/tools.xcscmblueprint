@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "97CED5894C2183D14B43E25FBAAC2BC4F6524791",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "97CED5894C2183D14B43E25FBAAC2BC4F6524791" : 9223372036854775807,
+    "2A2F382374FD30C484CA73FCF61DE4EFF4438662" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0FEAA329-A210-465D-82B1-9BB279B00471",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "97CED5894C2183D14B43E25FBAAC2BC4F6524791" : "tools-devtools\/",
+    "2A2F382374FD30C484CA73FCF61DE4EFF4438662" : "..\/lib-auframework\/lib-auframework"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "tools",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "projects\/xcode\/tools.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/nicaraguabinary\/lib-auframework.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A2F382374FD30C484CA73FCF61DE4EFF4438662"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/nicaraguabinary\/tools-devtools.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "97CED5894C2183D14B43E25FBAAC2BC4F6524791"
+    }
+  ]
+}
