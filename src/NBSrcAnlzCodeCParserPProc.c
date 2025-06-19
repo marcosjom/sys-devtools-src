@@ -330,7 +330,7 @@ BOOL SrcAnlzCodeCParser_pprocFeedDirective(STSrcAnlzCodeCParser* state){
 									SI32 i;
 									for(i = 0; i < pathsCount; i++){
 										NBString_empty(&strFullPath);
-										NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.lenght - 1] == '/' || strFullPath.str[strFullPath.lenght - 1] == '\\')
+										NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.length - 1] == '/' || strFullPath.str[strFullPath.length - 1] == '\\')
 										NBString_concat(&strFullPath, hNameOnly.str);
 										stream = fopen(strFullPath.str, "rb");
 										if(stream != NULL){
@@ -346,7 +346,7 @@ BOOL SrcAnlzCodeCParser_pprocFeedDirective(STSrcAnlzCodeCParser* state){
 										SI32 i;
 										for(i = 0; i < pathsCount; i++){
 											NBString_empty(&strFullPath);
-											NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.lenght - 1] == '/' || strFullPath.str[strFullPath.lenght - 1] == '\\')
+											NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.length - 1] == '/' || strFullPath.str[strFullPath.length - 1] == '\\')
 											NBString_concat(&strFullPath, hNameOnly.str);
 											stream = fopen(strFullPath.str, "rb");
 											if(stream != NULL){
@@ -371,7 +371,7 @@ BOOL SrcAnlzCodeCParser_pprocFeedDirective(STSrcAnlzCodeCParser* state){
 									SI32 i;
 									for(i = 0; i < pathsCount; i++){
 										NBString_empty(&strFullPath);
-										NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.lenght - 1] == '/' || strFullPath.str[strFullPath.lenght - 1] == '\\')
+										NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.length - 1] == '/' || strFullPath.str[strFullPath.length - 1] == '\\')
 										NBString_concat(&strFullPath, hNameOnly.str);
 										stream = fopen(strFullPath.str, "rb");
 										if(stream != NULL){
@@ -387,7 +387,7 @@ BOOL SrcAnlzCodeCParser_pprocFeedDirective(STSrcAnlzCodeCParser* state){
 										SI32 i;
 										for(i = 0; i < pathsCount; i++){
 											NBString_empty(&strFullPath);
-											NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.lenght - 1] == '/' || strFullPath.str[strFullPath.lenght - 1] == '\\')
+											NBString_concat(&strFullPath, &pathsBuff[pathsStarts[i]]); NBASSERT(strFullPath.str[strFullPath.length - 1] == '/' || strFullPath.str[strFullPath.length - 1] == '\\')
 											NBString_concat(&strFullPath, hNameOnly.str);
 											stream = fopen(strFullPath.str, "rb");
 											if(stream != NULL){
@@ -406,8 +406,8 @@ BOOL SrcAnlzCodeCParser_pprocFeedDirective(STSrcAnlzCodeCParser* state){
 							//Process include
 							if(stream != NULL){
 								//Add to imported list
-								NBArray_addValueCopy(&state->includedStarts, UI32, state->included.lenght);
-								NBString_concatBytes(&state->included, hNameOnly.str, hNameOnly.lenght + 1); // +1 to include the '\0' char.
+								NBArray_addValueCopy(&state->includedStarts, UI32, state->included.length);
+								NBString_concatBytes(&state->included, hNameOnly.str, hNameOnly.length + 1); // +1 to include the '\0' char.
 								//Reset state
 								NBASSERT(state->parseScopesStack.use > 1)
 								if(state->parseScopesStack.use <= 1){
@@ -456,7 +456,7 @@ BOOL SrcAnlzCodeCParser_pprocFeedDirective(STSrcAnlzCodeCParser* state){
 										//A source file shall not end in a partial preprocessing token or in a partial comment.
 										//Fix: push a newLine char at end of file (if necesary).
 										//-----------------------
-										/*if(r && (state->toknParseState->lastStreamChar != '\n' || state->toknParseState->strAcum2.lenght > 0)){
+										/*if(r && (state->toknParseState->lastStreamChar != '\n' || state->toknParseState->strAcum2.length > 0)){
 										 char lastChar = '\n';
 										 PRINTF_WARNING("File's last char is not a newLine (adding newLine to stream): %s.\n", hNameStr);
 										 if(!SrcAnlzToknParser_feed(state->toknParseState, &lastChar, sizeof(lastChar))){

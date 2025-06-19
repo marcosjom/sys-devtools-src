@@ -81,10 +81,10 @@ BOOL SrcAnlzToknParser_feed(STSrcAnlzToknParser* state, const char* data, const 
 		STNBString largerTokenStr; NBString_init(&largerTokenStr);
 		//Process buffer
 		UI32 buffPos = 0;
-		while(buffPos < dataSz /*&& state->strAcum2.lenght == 0*/){
+		while(buffPos < dataSz /*&& state->strAcum2.length == 0*/){
 			//Load char
 			cIgnore = FALSE;
-			if(state->strAcum2.lenght > 0 && state->lastStreamChar != '\\'){
+			if(state->strAcum2.length > 0 && state->lastStreamChar != '\\'){
 				//Load from 'pending buffer'
 				c = state->strAcum2.str[0];
 				NBString_removeFirstBytes(&state->strAcum2, 1);
@@ -119,7 +119,7 @@ BOOL SrcAnlzToknParser_feed(STSrcAnlzToknParser* state, const char* data, const 
 				largerTokenType = ENSrcAnlzToknType_Count; largerTokenVal = -1;
 				{
 					const char* toknStr	= state->strAcum.str;
-					const SI32 toknLen	= state->strAcum.lenght;
+					const SI32 toknLen	= state->strAcum.length;
 					SI32 i; for(i = 0; i< state->parseTypesSz; i++){
 						STSrcAnlzToknParseType* pType = &state->parseTypes[i];
 						if(pType->lastResult != ENSrcAnlzToknParseResult_Error){
@@ -196,11 +196,11 @@ BOOL SrcAnlzToknParser_feed(STSrcAnlzToknParser* state, const char* data, const 
 						}
 						state->lastTokenWasSpace = TRUE;
 					} else {
-						NBASSERT(largerSize <= state->strAcum.lenght)
+						NBASSERT(largerSize <= state->strAcum.length)
 						//Move remaining content to 're-process' buffer
-						if(state->strAcum2.lenght > 0) NBString_concat(&state->strAcum, state->strAcum2.str);
+						if(state->strAcum2.length > 0) NBString_concat(&state->strAcum, state->strAcum2.str);
 						NBString_set(&state->strAcum2, &state->strAcum.str[largerSize]);
-						if(state->strAcum.lenght > largerSize) NBString_removeLastBytes(&state->strAcum, state->strAcum.lenght - largerSize);
+						if(state->strAcum.length > largerSize) NBString_removeLastBytes(&state->strAcum, state->strAcum.length - largerSize);
 						//PRINT
 						/*{
 							switch(largerTokenType){
@@ -258,7 +258,7 @@ BOOL SrcAnlzToknParser_feed(STSrcAnlzToknParser* state, const char* data, const 
 									break;
 							}
 						}*/
-						//PRINTF_INFO("Chars %d of %d are %s: '%s'.\n", largerSize, (state->strAcum.lenght + state->strAcum2.lenght), STR_TOKEN_TYPE(largerTokenType), state->strAcum.str);
+						//PRINTF_INFO("Chars %d of %d are %s: '%s'.\n", largerSize, (state->strAcum.length + state->strAcum2.length), STR_TOKEN_TYPE(largerTokenType), state->strAcum.str);
 						//PRINTF_INFO("Remaining: '%s'\n", state->strAcum2.str);
 						//PRINTF_INFO("-----------\n");
 						//Feed

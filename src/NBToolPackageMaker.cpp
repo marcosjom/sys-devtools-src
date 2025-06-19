@@ -9,6 +9,16 @@
 #include "AUFrameworkBaseStdAfx.h"
 #include "NBToolPackageMaker.h"
 
+//As with all bounds-checked functions, fopen_s is only guaranteed to be available
+//if STDC_LIB_EXT1 is defined by the implementation
+//and if the user defines STDC_WANT_LIB_EXT1
+//to the integer constant 1 before including stdio.h.
+#ifdef _WIN32
+#   define FOPEN(VAR, ...)  fopen_s(&(VAR), __VA_ARGS__)
+#else
+#   define FOPEN(VAR, ...)  VAR = fopen(__VA_ARGS__)
+#endif
+
 // Stats
 
 void NBToolPackageMaker::statsInit(NBGenPkgStats* data){
@@ -53,7 +63,7 @@ SI32 NBToolPackageMaker::generarPaqueteDeArbol(const char* rutaRaizArbolConPleca
 	strArchDatos->establecer(rutaArchivoTmp1);
 	strArchIndice->establecer(rutaArchivoTmp2);
 	FILE* archivoPaqueteTmp = NULL;
-	fopen_s(&archivoPaqueteTmp, strArchDatos->str(), "wb");
+    FOPEN(archivoPaqueteTmp, strArchDatos->str(), "wb");
 	if(archivoPaqueteTmp==NULL){
 		PRINTF_ERROR("abriendo archivo para escritura: '%s'\n", strArchDatos->str());
 	} else {
@@ -73,7 +83,7 @@ SI32 NBToolPackageMaker::generarPaqueteDeArbol(const char* rutaRaizArbolConPleca
 		} else {
 			//Generar archivo indice (binario)
 			FILE* flujo = NULL;
-			fopen_s(&flujo, strArchIndice->str(), "wb");
+            FOPEN(flujo, strArchIndice->str(), "wb");
 			if(flujo==NULL){
 				PRINTF_ERROR("no se pudo abrir el archivo indice para escritura '%s'\n", strArchIndice->str());
 			} else {
@@ -82,13 +92,13 @@ SI32 NBToolPackageMaker::generarPaqueteDeArbol(const char* rutaRaizArbolConPleca
 				//Fusionar archivos indice y binario
 				FILE* archIndice = NULL;
 				FILE* archDatos = NULL;
-				fopen_s(&archIndice, strArchIndice->str(), "rb");
-				fopen_s(&archDatos, strArchDatos->str(), "rb");
+                FOPEN(archIndice, strArchIndice->str(), "rb");
+                FOPEN(archDatos, strArchDatos->str(), "rb");
 				if(archDatos==NULL || archIndice==NULL){
 					PRINTF_ERROR("no se pudo abrir uno de los archivos (indice o datos) para lectura\n");
 				} else {
 					FILE* archPaquete = NULL;
-					fopen_s(&archPaquete, rutaArchivoPaqueteDestino, "wb");
+                    FOPEN(archPaquete, rutaArchivoPaqueteDestino, "wb");
 					if(archPaquete==NULL){
 						PRINTF_ERROR("no se pudo abrir el archivo paquete para escritura\n");
 					} else {
@@ -194,7 +204,7 @@ SI32 NBToolPackageMaker::agregarPaqueteDeArbol(const char* rutaCarpetaRaizFuente
 					strTmp->agregar(nombreRecurso->str());
 					//
 					FILE* archivoLectura = NULL;
-					fopen_s(&archivoLectura, strTmp->str(), "rb");
+                    FOPEN(archivoLectura, strTmp->str(), "rb");
 					if(archivoLectura==NULL){
 						PRINTF_ERROR("No se pudo abrir archivo para lectura '%s'\n", strTmp->str());
 					} else {

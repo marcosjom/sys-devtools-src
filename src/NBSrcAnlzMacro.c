@@ -86,7 +86,7 @@ BOOL SrcAnlzMacros_macroCreateOrReset(STSrcAnlzMacros* state, STNBString* strNam
 			if(dstDef != NULL) *dstDef = macro;
 		} else {
 			STSrcAnlzMacro data;
-			data.nameStart			= state->names.lenght;
+			data.nameStart			= state->names.length;
 			data.params.start		= 0;
 			data.params.count		= 0;
 			data.params.areExplicit	= FALSE;
@@ -134,7 +134,7 @@ BOOL SrcAnlzMacros_macroParamsAdd(STSrcAnlzMacros* state, STSrcAnlzMacro* macro,
 		NBASSERT((macro->params.start + macro->params.count) == state->params.use) //All macro params must be set before setting other macro's param
 		if(!macro->params.isVaArgs && macro->params.areExplicit && (macro->params.start + macro->params.count) == state->params.use){
 			STSrcAnlzMacroParam newParam;
-			newParam.nameStart = state->paramsNames.lenght;
+			newParam.nameStart = state->paramsNames.length;
 			NBString_concat(&state->paramsNames, paramName);
 			NBString_concatByte(&state->paramsNames, '\0');
 			NBArray_addValue(&state->params, newParam);
@@ -179,7 +179,7 @@ BOOL SrcAnlzMacros_macroValueAddToken(STSrcAnlzMacros* state, STSrcAnlzMacro* ma
 			NBASSERT((macro->valTokensFirst + macro->valTokensCount) == state->valsTokns.tokns.defs.use) //Must be the last MACRO def
 			if((macro->valTokensFirst + macro->valTokensCount) == state->valsTokns.tokns.defs.use){
 				STSrcAnlzTokn newToken;
-				newToken.iAtBuff	= state->valsTokns.tokns.strBuff.lenght;
+				newToken.iAtBuff	= state->valsTokns.tokns.strBuff.length;
 				newToken.sintxPart	= sintxPart;
 				newToken.isSpacePreceded = isSpacePreceded;
 				NBString_concat(&state->valsTokns.tokns.strBuff, token);

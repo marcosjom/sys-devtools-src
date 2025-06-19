@@ -122,7 +122,7 @@ void SrcAnlzSintx_genBasicStructuresFromPlainDefs(const STSrcAnlzSintxPlainDef* 
 			}
 			if(i == -1){
 				STDef data;
-				data.firstCharName	= strBuff.lenght;
+				data.firstCharName	= strBuff.length;
 				data.qDefs			= 1;
 				data.qRefs			= 0;
 				NBString_concat(&strBuff, plainDef->name); NBString_concatByte(&strBuff, '\0');
@@ -145,18 +145,18 @@ void SrcAnlzSintx_genBasicStructuresFromPlainDefs(const STSrcAnlzSintxPlainDef* 
 			NBArray_addValue(&defOrder, iDef);
 			iNameSeq = 0;
 			//Enum
-			if(strEnum.lenght > 0) NBString_concat(&strEnum, ", ");
+			if(strEnum.length > 0) NBString_concat(&strEnum, ", ");
 			NBString_concat(&strEnum, "ENSrzAnlzSintxC_");
 			NBString_concat(&strEnum, strTmp.str);
 			if(i == 0) NBString_concat(&strEnum, " = 0");
 			NBString_concatByte(&strEnum, '\n');
 			//EnumName
-			if(strNames.lenght > 0) NBString_concat(&strNames, ", ");
+			if(strNames.length > 0) NBString_concat(&strNames, ", ");
 			NBString_concat(&strNames, "{ \"");
 			NBString_concat(&strNames, strTmp.str);
 			NBString_concat(&strNames, "\", NULL, 0 }\n");
 			//Open new range
-			if(strDefsRngs.lenght > 0) NBString_concat(&strDefsRngs, ", ");
+			if(strDefsRngs.length > 0) NBString_concat(&strDefsRngs, ", ");
 			NBString_concat(&strDefsRngs, " { ");
 			NBString_concatSI32(&strDefsRngs, (SI32)i);
 			NBString_concat(&strDefsRngs, ", ");
@@ -197,8 +197,8 @@ void SrcAnlzSintx_genBasicStructuresFromPlainDefs(const STSrcAnlzSintxPlainDef* 
 					NBString_concatBytes(&strTmp, &plainDef->valPlain[iPrevSpace + 1], (iCharSpace - iPrevSpace - 1));
 					iPrevSpace = iCharSpace;
 				}
-				NBASSERT(strTmp.lenght > 0)
-				if(strTmp.lenght > 0){
+				NBASSERT(strTmp.length > 0)
+				if(strTmp.length > 0){
 					SI32 iKeyword = -1, iPunctuator = -1; BOOL isHardcoded = FALSE;
 					//Search as  hardCoded value
 					if(iKeyword == -1 && iPunctuator == -1 && !isHardcoded){
@@ -208,11 +208,11 @@ void SrcAnlzSintx_genBasicStructuresFromPlainDefs(const STSrcAnlzSintxPlainDef* 
 					}
 					//Search as keyword
 					if(iKeyword == -1 && iPunctuator == -1 && !isHardcoded){
-						iKeyword = SrcAnlzSintx_searchKeyword(strTmp.str, strTmp.lenght, keywordsArr, keywordsArrLen, keywsRngsArr, keywsRngsArrLen);
+						iKeyword = SrcAnlzSintx_searchKeyword(strTmp.str, strTmp.length, keywordsArr, keywordsArrLen, keywsRngsArr, keywsRngsArrLen);
 					}
 					//Search as punctuator
 					if(iKeyword == -1 && iPunctuator == -1 && !isHardcoded){
-						iPunctuator = SrcAnlzSintx_searchPunctuator(strTmp.str, strTmp.lenght, punctsArr, punctsArrLen, punctsRngsArr, punctsRngsArrLen);
+						iPunctuator = SrcAnlzSintx_searchPunctuator(strTmp.str, strTmp.length, punctsArr, punctsArrLen, punctsRngsArr, punctsRngsArrLen);
 					}
 					//PRINTF_INFO("Part: '%s' (%s).\n", strTmp.str, (iKeyword != -1 ? "keyword" : iPunctuator != -1 ? "punctuator" : isHardcoded ? "hardcoded" : "definition"));
 					//Search-ref
@@ -228,7 +228,7 @@ void SrcAnlzSintx_genBasicStructuresFromPlainDefs(const STSrcAnlzSintxPlainDef* 
 						}
 						if(i == -1){
 							STDef data;
-							data.firstCharName	= strBuff.lenght;
+							data.firstCharName	= strBuff.length;
 							data.qDefs			= 0;
 							data.qRefs			= 1;
 							NBString_concat(&strBuff, strTmp.str);
@@ -421,7 +421,7 @@ void SrcAnlzSintx_genAdvancedStructuresFromBasicStructures(const STSrcAnlzSintxS
 				}
 				NBString_concat(&strPosibsGrouped, " };\n");
 				//
-				if(strMainArrGrp.lenght > 0) NBString_concat(&strMainArrGrp, ", ");
+				if(strMainArrGrp.length > 0) NBString_concat(&strMainArrGrp, ", ");
 				NBString_concat(&strMainArrGrp, "{");
 				NBString_concat(&strMainArrGrp, "\"");
 				NBString_concat(&strMainArrGrp, enumDefs[lastDefEnum].name);
@@ -511,7 +511,7 @@ void SrcAnlzSintx_genAdvancedStructuresFromBasicStructures(const STSrcAnlzSintxS
 		}
 		NBString_concat(&strPosibsGrouped, " };\n");
 		//
-		if(strMainArrGrp.lenght > 0) NBString_concat(&strMainArrGrp, ", ");
+		if(strMainArrGrp.length > 0) NBString_concat(&strMainArrGrp, ", ");
 		NBString_concat(&strMainArrGrp, "{");
 		NBString_concat(&strMainArrGrp, "\"");
 		NBString_concat(&strMainArrGrp, enumDefs[lastDefEnum].name);

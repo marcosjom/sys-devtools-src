@@ -15,6 +15,21 @@
 		2C03D65D20DE089800060B2C /* NBSrcAnlzCodeCParserConsume.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD619BF2002C1320052AEA4 /* NBSrcAnlzCodeCParserConsume.c */; };
 		2C316CC41FFED75300377D65 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C633A531EF1EFE200E99BBF /* main.c */; };
 		2C316CC51FFEDE8100377D65 /* NBSrcAnlzMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4592E11FFD8DAC00DFEB3C /* NBSrcAnlzMacro.c */; };
+		2C3649172E031E2A002304D1 /* NBSrcAnlzBase.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C49E7442070557900738AD0 /* NBSrcAnlzBase.c */; };
+		2C3649182E031E2A002304D1 /* NBSrcAnlzParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C633A581EF1F02400E99BBF /* NBSrcAnlzParser.c */; };
+		2C3649192E031E2A002304D1 /* NBSrcAnlzToknParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C21D8661FFFE68600A7BCD9 /* NBSrcAnlzToknParser.c */; };
+		2C36491A2E031E2A002304D1 /* NBSrcAnlzSintx.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5961B1FB5466E0044D82C /* NBSrcAnlzSintx.c */; };
+		2C36491B2E031E2A002304D1 /* NBSrcAnlzSintxParseTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C05EB891FBA439D00FEB5F2 /* NBSrcAnlzSintxParseTree.c */; };
+		2C36491C2E031E2A002304D1 /* NBSrcAnlzMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4592E11FFD8DAC00DFEB3C /* NBSrcAnlzMacro.c */; };
+		2C36491D2E031E2A002304D1 /* NBSrcAnlzExprParse.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C3AAEDC1F993E6200E160AE /* NBSrcAnlzExprParse.c */; };
+		2C36491E2E031E2A002304D1 /* NBSrcAnlzSintxC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C596A7820DB624D003CFC43 /* NBSrcAnlzSintxC.c */; };
+		2C36491F2E031E2A002304D1 /* NBSrcAnlzCodeCParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C316CC71FFF510500377D65 /* NBSrcAnlzCodeCParser.c */; };
+		2C3649202E031E2A002304D1 /* NBSrcAnlzCodeCParserTokn.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD619C52003242F0052AEA4 /* NBSrcAnlzCodeCParserTokn.c */; };
+		2C3649212E031E2A002304D1 /* NBSrcAnlzCodeCParserPProc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CA123421F9528E1009DE48C /* NBSrcAnlzCodeCParserPProc.c */; };
+		2C3649222E031E2A002304D1 /* NBSrcAnlzCodeCParserConsume.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD619BF2002C1320052AEA4 /* NBSrcAnlzCodeCParserConsume.c */; };
+		2C3649232E031E9E002304D1 /* NBSrcAnlzCodeC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CA123481F959150009DE48C /* NBSrcAnlzCodeC.c */; };
+		2C3649262E031F76002304D1 /* NBSourceTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3649252E031F76002304D1 /* NBSourceTranslator.cpp */; };
+		2C3649272E031F76002304D1 /* NBSourceTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3649252E031F76002304D1 /* NBSourceTranslator.cpp */; };
 		2C49E742206D859000738AD0 /* libnbframework-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C49E743206D859000738AD0 /* libnbframework-osx.a */; };
 		2C60DE442075AA1E005D4FBF /* NBSrcAnlzBase.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C49E7442070557900738AD0 /* NBSrcAnlzBase.c */; };
 		2C960EBB21E6F11600AA812D /* NBToolAppIconsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C960EB921E6F11600AA812D /* NBToolAppIconsGenerator.cpp */; };
@@ -78,6 +93,8 @@
 		2C316CC31FFEC89E00377D65 /* NBSrcAnlzBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSrcAnlzBase.h; path = ../../../include/NBSrcAnlzBase.h; sourceTree = SOURCE_ROOT; };
 		2C316CC71FFF510500377D65 /* NBSrcAnlzCodeCParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NBSrcAnlzCodeCParser.c; path = ../../../src/NBSrcAnlzCodeCParser.c; sourceTree = SOURCE_ROOT; };
 		2C316CC81FFF510500377D65 /* NBSrcAnlzCodeCParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSrcAnlzCodeCParser.h; path = ../../../include/NBSrcAnlzCodeCParser.h; sourceTree = SOURCE_ROOT; };
+		2C3649242E031F76002304D1 /* NBSourceTranslator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NBSourceTranslator.h; path = ../../../include/NBSourceTranslator.h; sourceTree = SOURCE_ROOT; };
+		2C3649252E031F76002304D1 /* NBSourceTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = NBSourceTranslator.cpp; path = ../../../src/NBSourceTranslator.cpp; sourceTree = SOURCE_ROOT; };
 		2C3AAEDC1F993E6200E160AE /* NBSrcAnlzExprParse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NBSrcAnlzExprParse.c; path = ../../../src/NBSrcAnlzExprParse.c; sourceTree = SOURCE_ROOT; };
 		2C3AAEDD1F993E6200E160AE /* NBSrcAnlzExprParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSrcAnlzExprParse.h; path = ../../../include/NBSrcAnlzExprParse.h; sourceTree = SOURCE_ROOT; };
 		2C4592E11FFD8DAC00DFEB3C /* NBSrcAnlzMacro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NBSrcAnlzMacro.c; path = ../../../src/NBSrcAnlzMacro.c; sourceTree = SOURCE_ROOT; };
@@ -203,6 +220,8 @@
 		2CC8B6A321C2BA3A00CF8B7D /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				2C3649242E031F76002304D1 /* NBSourceTranslator.h */,
+				2C3649252E031F76002304D1 /* NBSourceTranslator.cpp */,
 				2CC8B6A421C2BA4400CF8B7D /* NBToolAudioCompressor.h */,
 				2CC8B6A721C2BA4400CF8B7D /* NBToolAudioCompressor.cpp */,
 				2C960EBA21E6F11600AA812D /* NBToolAppIconsGenerator.h */,
@@ -404,20 +423,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF5961D1FB547470044D82C /* NBSrcAnlzSintx.c in Sources */,
-				2C316CC51FFEDE8100377D65 /* NBSrcAnlzMacro.c in Sources */,
-				2CB91E232001738D0097EC0B /* NBSrcAnlzParser.c in Sources */,
 				2C316CC41FFED75300377D65 /* main.c in Sources */,
-				2C03D65A20DE088E00060B2C /* NBSrcAnlzCodeC.c in Sources */,
 				2C60DE442075AA1E005D4FBF /* NBSrcAnlzBase.c in Sources */,
+				2CB91E232001738D0097EC0B /* NBSrcAnlzParser.c in Sources */,
 				2CD619C920032C9A0052AEA4 /* NBSrcAnlzToknParser.c in Sources */,
-				2C03D65B20DE089300060B2C /* NBSrcAnlzCodeCParserTokn.c in Sources */,
-				2C03D65D20DE089800060B2C /* NBSrcAnlzCodeCParserConsume.c in Sources */,
+				2CF5961D1FB547470044D82C /* NBSrcAnlzSintx.c in Sources */,
 				2C03D65920DE088B00060B2C /* NBSrcAnlzSintxC.c in Sources */,
+				2C316CC51FFEDE8100377D65 /* NBSrcAnlzMacro.c in Sources */,
+				2C03D65A20DE088E00060B2C /* NBSrcAnlzCodeC.c in Sources */,
+				2C03D65820DE088700060B2C /* NBSrcAnlzCodeCParser.c in Sources */,
+				2C03D65B20DE089300060B2C /* NBSrcAnlzCodeCParserTokn.c in Sources */,
+				2C03D65C20DE089600060B2C /* NBSrcAnlzCodeCParserPProc.c in Sources */,
+				2C03D65D20DE089800060B2C /* NBSrcAnlzCodeCParserConsume.c in Sources */,
 				2CD619BC2002B1FF0052AEA4 /* NBSrcAnlzSintxParseTree.c in Sources */,
 				2CB91E1F200164980097EC0B /* NBSrcAnlzExprParse.c in Sources */,
-				2C03D65C20DE089600060B2C /* NBSrcAnlzCodeCParserPProc.c in Sources */,
-				2C03D65820DE088700060B2C /* NBSrcAnlzCodeCParser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +445,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CEDF56D1A657FD20024EBC6 /* main.cpp in Sources */,
+				2C3649172E031E2A002304D1 /* NBSrcAnlzBase.c in Sources */,
+				2C3649182E031E2A002304D1 /* NBSrcAnlzParser.c in Sources */,
+				2C3649192E031E2A002304D1 /* NBSrcAnlzToknParser.c in Sources */,
+				2C3649272E031F76002304D1 /* NBSourceTranslator.cpp in Sources */,
+				2C36491A2E031E2A002304D1 /* NBSrcAnlzSintx.c in Sources */,
+				2C36491E2E031E2A002304D1 /* NBSrcAnlzSintxC.c in Sources */,
+				2C36491C2E031E2A002304D1 /* NBSrcAnlzMacro.c in Sources */,
+				2C3649232E031E9E002304D1 /* NBSrcAnlzCodeC.c in Sources */,
+				2C36491F2E031E2A002304D1 /* NBSrcAnlzCodeCParser.c in Sources */,
+				2C3649202E031E2A002304D1 /* NBSrcAnlzCodeCParserTokn.c in Sources */,
+				2C3649212E031E2A002304D1 /* NBSrcAnlzCodeCParserPProc.c in Sources */,
+				2C3649222E031E2A002304D1 /* NBSrcAnlzCodeCParserConsume.c in Sources */,
+				2C36491B2E031E2A002304D1 /* NBSrcAnlzSintxParseTree.c in Sources */,
+				2C36491D2E031E2A002304D1 /* NBSrcAnlzExprParse.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +470,7 @@
 				2CC8B6AC21C2DDCF00CF8B7D /* NBToolImagesScaler.cpp in Sources */,
 				2C960EBB21E6F11600AA812D /* NBToolAppIconsGenerator.cpp in Sources */,
 				2C960EBE21E7BF5D00AA812D /* NBToolLaunchscreensGenerator.cpp in Sources */,
+				2C3649262E031F76002304D1 /* NBSourceTranslator.cpp in Sources */,
 				2CC8B6AD21C2DDD100CF8B7D /* NBToolPackageMaker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +548,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../include $(SRCROOT)/../../../../../sys-nbframework/lib-nbframework-src/include $(SRCROOT)/../../../../lib-auframework-src/include";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../../sys-nbframework/sys-nbframework-src/include $(SRCROOT)/../../../../lib-auframework-src/include $(SRCROOT)/../../../include";
 			};
 			name = Debug;
 		};
@@ -549,17 +583,13 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../include $(SRCROOT)/../../../../../sys-nbframework/lib-nbframework-src/include $(SRCROOT)/../../../../lib-auframework-src/include";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../../sys-nbframework/sys-nbframework-src/include $(SRCROOT)/../../../../lib-auframework-src/include $(SRCROOT)/../../../include";
 			};
 			name = Release;
 		};
 		2CEDF5711A657FD20024EBC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/mortegam/Desktop/NIBSA_proyectos/CltNicaraguaBinary/sys-auframework/sys-auframework-src/projects/xcode/lib-auframework/build/Debug",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -567,10 +597,6 @@
 		2CEDF5721A657FD20024EBC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/mortegam/Desktop/NIBSA_proyectos/CltNicaraguaBinary/sys-auframework/sys-auframework-src/projects/xcode/lib-auframework/build/Debug",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -588,7 +614,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../../sys-nbframework/lib-nbframework-src/include $(SRCROOT)/../../../../lib-auframework-src/include $(SRCROOT)/../../../include";
 			};
 			name = Debug;
 		};
@@ -604,7 +629,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../../sys-nbframework/lib-nbframework-src/include $(SRCROOT)/../../../../lib-auframework-src/include $(SRCROOT)/../../../include";
 			};
 			name = Release;
 		};

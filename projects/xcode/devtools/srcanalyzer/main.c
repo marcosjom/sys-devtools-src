@@ -9,7 +9,7 @@
 #include "nb/NBFrameworkPch.h"
 #include "nb/NBFrameworkDefs.h"
 //
-#include "nb/core/NBMngrThreads.h"
+#include "nb/core/NBMngrProcess.h"
 #include "nb/core/NBMngrStructMaps.h"
 #include "nb/core/NBSintaxParser.h"
 #include "nb/core/NBSintaxParserC.h"
@@ -20,12 +20,6 @@
 //
 #include "NBSrcAnlzSintxCPlain.h"
 #include "NBSrcAnlzSintxC.h"
-//
-// */
-//\
-i();
-/\
-/ j();
 
 //
 /*#define ALGO 1
@@ -120,6 +114,8 @@ void lcdPrintInt(int col, int row, int value, int digits){
 }
 
 int main(int argc, const char * argv[]) {
+    NBMngrProcess_init();
+    NBMngrStructMaps_init();
 	//PRINTF_CONSOLE("%s.\n", MY_FUNC("HOLA1"));
 	//PRINTF_CONSOLE("%s.\n", MY_NAME);
 	//const char* texto = MACRO_A(MACRO_A(MACRO_B("txt")));
@@ -131,8 +127,6 @@ int main(int argc, const char * argv[]) {
 	//lcdPrintInt(0, 0, 0, 1);
 	//lcdPrintInt(0, 0, -123456789, 5);
 	//
-	NBMngrThreads_init();
-	NBMngrStructMaps_init();
 	{
 		//Testing rules completeness at constant-expression
 		const char* rulesStr =
@@ -292,16 +286,15 @@ int main(int argc, const char * argv[]) {
 			//Feed file
 			{
 				const char* filepath = "/Users/mortegam/Desktop/NIBSA_proyectos/CltNicaraguaBinary/sys-nbframework/lib-nbframework-src/src/core/NBSintaxParser.c";
-				STNBFile file;
-				NBFile_init(&file);
-				if(!NBFile_open(&file, filepath, ENNBFileMode_Read)){
+                STNBFileRef file = NBFile_alloc(NULL);
+				if(!NBFile_open(file, filepath, ENNBFileMode_Read)){
 					PRINTF_ERROR("NBFile_open failed.\n");
 				} else {
-					NBFile_lock(&file);
+					NBFile_lock(file);
 					{
 						char buff[4096];
 						while(TRUE){
-							const SI32 buffRead = NBFile_read(&file, buff, sizeof(char), sizeof(buff));
+							const SI32 buffRead = NBFile_read(file, buff, sizeof(buff));
 							if(buffRead <= 0) break;
 							if(!NBSintaxParserC_feedBytes(&parser, buff, buffRead)){
 								PRINTF_ERROR("NBSintaxParserC_feed failed.\n");
@@ -309,7 +302,7 @@ int main(int argc, const char * argv[]) {
 							}
 						}
 					}
-					NBFile_unlock(&file);
+					NBFile_unlock(file);
 				}
 				NBFile_release(&file);
 			}
@@ -726,7 +719,7 @@ int main(int argc, const char * argv[]) {
 	//PRINTF_INFO("%.4f secs.\n", (float)(endTime - startTime) / (float)ciclesPerSec);
 	//
 	NBMngrStructMaps_release();
-	NBMngrThreads_release();
+	NBMngrProcess_release();
 	//
 	return 0;
 }

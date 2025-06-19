@@ -1179,7 +1179,7 @@ BOOL SrcAnlzCodeCParser_consumeDeclarator(const STSrcAnlzCodeCParser* state, STS
 								NBASSERT(child->iValue < state->acumTokensCur->defs.use)
 								const STSrcAnlzTokn* tokenDef = NBArray_itmPtrAtIndex(&state->acumTokensCur->defs, STSrcAnlzTokn, child->iValue);
 								const char* tokenStr	= &state->acumTokensCur->strBuff.str[tokenDef->iAtBuff];
-								data->iNameFirstChar	= dstCode->strsBuff.lenght;
+								data->iNameFirstChar	= dstCode->strsBuff.length;
 								NBString_concat(&dstCode->strsBuff, tokenStr);
 								NBString_concatByte(&dstCode->strsBuff, '\0');
 								PRINTF_INFO("DeclarsScope %d, declar(@%d/%d) setting name '%s'%s.\n", iDeclScope, iDeclarDef, srcScope->stats.declarsRng.count, tokenStr, (data->type.specifiersMask & ENSrcAnlzDecSpecifiersBit_SC_Typedef) != 0 ? " (typedef)" : "");
@@ -1700,7 +1700,7 @@ BOOL SrcAnlzCodeCParser_consumeDeclaratorParamIdentifierList(const STSrcAnlzCode
 						} else {
 							if(isNewDef){
 								//Declar was added at this call
-								declarDef->iNameFirstChar = dstCode->strsBuff.lenght;
+								declarDef->iNameFirstChar = dstCode->strsBuff.length;
 								NBString_concat(&dstCode->strsBuff, tokenStr);
 								NBString_concatByte(&dstCode->strsBuff, '\0');
 							} else {
@@ -2063,7 +2063,7 @@ BOOL SrcAnlzCodeCParser_consumeEnumSpecifier(const STSrcAnlzCodeCParser* state, 
 					data.iNameFirstChar	= 0;
 					data.iBodyDef		= 0;
 					if(usrTypeName != NULL){
-						data.iNameFirstChar	= dstCode->strsBuff.lenght;
+						data.iNameFirstChar	= dstCode->strsBuff.length;
 						NBString_concat(&dstCode->strsBuff, usrTypeName);
 						NBString_concatByte(&dstCode->strsBuff, '\0');
 						PRINTF_INFO("DeclarsScope %d, userType %d(@%d) added with name '%s' (enum).\n", iDeclScope, srcScope->stats.usrTypesRng.count, dstCode->defsUsrTypes.use, usrTypeName);
@@ -2168,7 +2168,7 @@ BOOL SrcAnlzCodeCParser_consumeEnumeratorList(const STSrcAnlzCodeCParser* state,
 								//Declar was added at this call
 								declarDef->type.specifiersMask	= (ENSrcAnlzDecSpecifiersBit_TQ_Const | ENSrcAnlzDecSpecifiersBit_TS_Enum);
 								declarDef->type.iCustomTypeDef	= iEnumDef;
-								declarDef->iNameFirstChar = dstCode->strsBuff.lenght;
+								declarDef->iNameFirstChar = dstCode->strsBuff.length;
 								NBString_concat(&dstCode->strsBuff, tokenStr);
 								NBString_concatByte(&dstCode->strsBuff, '\0');
 								PRINTF_INFO("Added enumerator '%s' declar(@%d) for enum '%s'.\n", tokenStr, iDeclarDef, &dstCode->strsBuff.str[NBArray_itmPtrAtIndex(&dstCode->defsUsrTypes, STSrcAnlzCodeCUsrType, iEnumDef)->iNameFirstChar]);
@@ -2372,7 +2372,7 @@ BOOL SrcAnlzCodeCParser_consumeStructOrUnionSpecifier(const STSrcAnlzCodeCParser
 									data.iNameFirstChar	= 0;
 									data.iBodyDef		= 0;
 									if(usrTypeName != NULL){
-										data.iNameFirstChar	= dstCode->strsBuff.lenght;
+										data.iNameFirstChar	= dstCode->strsBuff.length;
 										NBString_concat(&dstCode->strsBuff, usrTypeName);
 										NBString_concatByte(&dstCode->strsBuff, '\0');
 										PRINTF_INFO("DeclarsScope %d, userType %d(@%d) added with name '%s' (%s).\n", iDeclScope, srcScope->stats.usrTypesRng.count, dstCode->defsUsrTypes.use, usrTypeName, (type == ENSrcAnlzCodeUsrType_Struct ? "struct" : "union"));

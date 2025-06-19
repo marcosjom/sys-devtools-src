@@ -15,7 +15,7 @@
 #include "nb/core/NBJson.h"
 #include "nb/core/NBStruct.h"
 #include "nb/core/NBMngrStructMaps.h"
-#include "nb/core/NBMngrThreads.h"
+#include "nb/core/NBMngrProcess.h"
 
 void makePackagesFromFilename(const char* filename);
 void makeHeadersFromBinaries(const char* filename);
@@ -24,8 +24,15 @@ void makeImagesScalesFromFilename(const char* filename, const ENGenResProfile pr
 void makeAppIconsFromFilename(const char* filename);
 void makeLaunchScreensFromFilename(const char* filename);
 
+#ifdef _WIN32
+#   define SCANF    scanf_s
+#else
+#   define SCANF    scanf
+#endif
+
+
 int main(int argc, const char * argv[]) {
-	NBMngrThreads_init();
+	NBMngrProcess_init();
 	NBMngrStructMaps_init();
 	//NBSocket_initEngine();
 	//NBSocket_initWSA();
@@ -123,7 +130,7 @@ int main(int argc, const char * argv[]) {
 						//LEER CONSOLA
 						iCmd = 0;
 						memset(cmdsBuff, 0, sizeof(cmdsBuff[0]) * CMDS_BUFF_SIZE);
-						scanf_s("%s", cmdsBuff);
+                        SCANF("%s", cmdsBuff);
 					}
 				}
 			}
@@ -140,10 +147,10 @@ int main(int argc, const char * argv[]) {
 	//NBSocket_finishWSA();
 	//NBSocket_releaseEngine();
 	NBMngrStructMaps_release();
-	NBMngrThreads_release();
+	NBMngrProcess_release();
 	//
 	PRINTF_CONSOLE("Presione ENTER para terminar\n");
-	char c; scanf_s("%c", &c);
+	char c; SCANF("%c", &c);
 	//
     return 0;
 }
@@ -298,19 +305,17 @@ void makeHeadersFromBinaries(const char* filename){
 							PRINTF_ERROR("binToHeader 'dstFileC' node is empty (ignoring binary).\n");
 						} else {
 							//Open src file
-							STNBFile fSrc;
-							NBFile_init(&fSrc);
-							if(!NBFile_open(&fSrc, srcFile->str(), ENNBFileMode_Read)){
+                            STNBFileRef fSrc = NBFile_alloc(NULL);
+							if(!NBFile_open(fSrc, srcFile->str(), ENNBFileMode_Read)){
 								PRINTF_ERROR("binToHeader 'srcFile' could not be opened: %s.\n", srcFile->str());
 							} else {
 								//Open dst file
 								{
-									STNBFile fDst;
-									NBFile_init(&fDst);
-									if(!NBFile_open(&fDst, dstFile->str(), ENNBFileMode_Write)){
+                                    STNBFileRef fDst = NBFile_alloc(NULL);
+									if(!NBFile_open(fDst, dstFile->str(), ENNBFileMode_Write)){
 										PRINTF_ERROR("binToHeader 'dstFile' could not be opened: %s.\n", dstFile->str());
 									} else {
-										NBFile_lock(&fSrc);
+										NBFile_lock(fSrc);
 										//Process
 										{
 											STNBString strCode, strNameC;
@@ -347,7 +352,7 @@ void makeHeadersFromBinaries(const char* filename){
 													UI32 totalBytes = 0, totalBytesLine = 0;
 													BYTE buff[4096];
 													while(TRUE){
-														const SI32 readCount = NBFile_read(&fSrc, buff, 1, sizeof(buff));
+														const SI32 readCount = NBFile_read(fSrc, buff, sizeof(buff));
 														if(readCount <= 0){
 															break;
 														} else {
@@ -379,25 +384,25 @@ void makeHeadersFromBinaries(const char* filename){
 												NBString_concat(&strCode, "#endif\n");
 												//Write content
 												{
-													NBFile_lock(&fDst);
-													if(NBFile_write(&fDst, strCode.str, 1, strCode.length) != strCode.length){
+													NBFile_lock(fDst);
+													if(NBFile_write(fDst, strCode.str, strCode.length) != strCode.length){
 														PRINTF_ERROR("binToHeader %d bytes could not be written: %s.\n", strCode.length, dstFile->str());
 													} else {
 														//PRINTF_CONSOLE("binToHeader %d written to: %s.\n", strCode.length, dstFile->str());
 														totalProcesados++;
 													}
-													NBFile_unlock(&fDst);
+													NBFile_unlock(fDst);
 												}
 											}
 											NBString_release(&strNameC);
 											NBString_release(&strCode);
 										}
-										NBFile_unlock(&fSrc);
-										NBFile_close(&fDst);
+										NBFile_unlock(fSrc);
+										NBFile_close(fDst);
 									}
 									NBFile_release(&fDst);
 								}
-								NBFile_close(&fSrc);
+								NBFile_close(fSrc);
 							}
 							NBFile_release(&fSrc);
 						}

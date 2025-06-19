@@ -768,7 +768,7 @@ void SrcAnlzCodeC_printConcatDeclar(const STSrcAnlzCodeC* state, const UI32 iDec
 					const STSrcAnlzCodeCDeclarPtr* spec = NBArray_itmPtrAtIndex(&state->defsDeclPtrSpecs, STSrcAnlzCodeCDeclarPtr, i);
 					if(spec->iDeepLvl == declar->iDeepLvl){
 						if(!spaceAdded){
-							if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+							if(dst->length != 0) NBString_concatByte(dst, ' ');
 							spaceAdded = TRUE;
 						}
 						NBString_concatByte(dst, '*');
@@ -782,7 +782,7 @@ void SrcAnlzCodeC_printConcatDeclar(const STSrcAnlzCodeC* state, const UI32 iDec
 			const char* name = &state->strsBuff.str[declar->iNameFirstChar];
 			if(name[0] != '\0'){
 				if(!spaceAdded){
-					if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+					if(dst->length != 0) NBString_concatByte(dst, ' ');
 					spaceAdded = TRUE;
 				}
 				NBString_concat(dst, &state->strsBuff.str[declar->iNameFirstChar]);
@@ -800,14 +800,14 @@ void SrcAnlzCodeC_printConcatDeclar(const STSrcAnlzCodeC* state, const UI32 iDec
 		}
 		//declar's size in bits
 		if(declar->szInBits){
-			if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+			if(dst->length != 0) NBString_concatByte(dst, ' ');
 			NBString_concat(dst, " : ");
 			NBString_concatUI32(dst, (UI32)declar->szInBits);
 		}
 		//declar's body
 		if(declar->iBodyDef){
 			NBASSERT(declar->iBodyDef >= 0 && declar->iBodyDef < state->defsDeclarsScopes.use)
-			if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+			if(dst->length != 0) NBString_concatByte(dst, ' ');
 			NBString_concat(dst, "{\n");
 			SrcAnlzCodeC_printConcatScope(state, declar->iBodyDef, printDeepLvl + 1, dst, usrTypesPrinted);
 			if(printDeepLvl != 0) NBString_concatRepeatedByte(dst, ' ', printDeepLvl * 4);
@@ -853,7 +853,7 @@ void SrcAnlzCodeC_printConcatDeclarWithPathReverse(const STSrcAnlzCodeC* state, 
 		const char* name = &state->strsBuff.str[declar->iNameFirstChar];
 		if(name[0] != '\0'){
 			if(!spaceAdded){
-				if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+				if(dst->length != 0) NBString_concatByte(dst, ' ');
 				spaceAdded = TRUE;
 			}
 			NBString_concat(dst, &state->strsBuff.str[declar->iNameFirstChar]);
@@ -861,7 +861,7 @@ void SrcAnlzCodeC_printConcatDeclarWithPathReverse(const STSrcAnlzCodeC* state, 
 		//Parent declar
 		if(iPathItem > 0){
 			if(!spaceAdded){
-				if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+				if(dst->length != 0) NBString_concatByte(dst, ' ');
 				spaceAdded = TRUE;
 			}
 			NBString_concatByte(dst, '(');
@@ -881,14 +881,14 @@ void SrcAnlzCodeC_printConcatDeclarWithPathReverse(const STSrcAnlzCodeC* state, 
 	}
 	//declar's size in bits
 	if(declar->szInBits){
-		if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+		if(dst->length != 0) NBString_concatByte(dst, ' ');
 		NBString_concat(dst, " : ");
 		NBString_concatUI32(dst, (UI32)declar->szInBits);
 	}
 	//declar's body
 	if(declar->iBodyDef){
 		NBASSERT(declar->iBodyDef >= 0 && declar->iBodyDef < state->defsDeclarsScopes.use)
-		if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+		if(dst->length != 0) NBString_concatByte(dst, ' ');
 		NBString_concat(dst, "{\n");
 		SrcAnlzCodeC_printConcatScope(state, declar->iBodyDef, printDeepLvl + 1, dst, usrTypesPrinted);
 		if(printDeepLvl != 0) NBString_concatRepeatedByte(dst, ' ', printDeepLvl * 4);
@@ -957,7 +957,7 @@ UI32 SrcAnlzCodeC_printConcatSpecMask(const STSrcAnlzCodeC* state, const STSrcAn
 		if(NBArraySorted_indexOf(usrTypesPrinted, &declar->type.iCustomTypeDef, sizeof(declar->type.iCustomTypeDef), NULL) == -1){
 			NBArraySorted_addValue(usrTypesPrinted, declar->type.iCustomTypeDef);
 			if(usrType->iBodyDef != 0){
-				if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+				if(dst->length != 0) NBString_concatByte(dst, ' ');
 				NBString_concat(dst, "{\n");
 				SrcAnlzCodeC_printConcatScope(state, usrType->iBodyDef, printDeepLvl + 1, dst, usrTypesPrinted);
 				if(printDeepLvl != 0) NBString_concatRepeatedByte(dst, ' ', printDeepLvl * 4);
@@ -985,7 +985,7 @@ UI32 SrcAnlzCodeC_printConcatSpecMask(const STSrcAnlzCodeC* state, const STSrcAn
 		if(NBArraySorted_indexOf(usrTypesPrinted, &declar->type.iCustomTypeDef, sizeof(declar->type.iCustomTypeDef), NULL) == -1){
 			NBArraySorted_addValue(usrTypesPrinted, declar->type.iCustomTypeDef);
 			if(usrType->iBodyDef != 0){
-				if(dst->lenght != 0) NBString_concatByte(dst, ' ');
+				if(dst->length != 0) NBString_concatByte(dst, ' ');
 				NBString_concat(dst, "{\n");
 				SrcAnlzCodeC_printConcatScope(state, usrType->iBodyDef, printDeepLvl + 1, dst, usrTypesPrinted);
 				if(printDeepLvl != 0) NBString_concatRepeatedByte(dst, ' ', printDeepLvl * 4);

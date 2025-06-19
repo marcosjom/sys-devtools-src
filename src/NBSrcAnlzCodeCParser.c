@@ -268,7 +268,7 @@ BOOL SrcAnlzCodeCParser_addIncludePathUsr(STSrcAnlzCodeCParser* state, const cha
 	if(path != NULL){
 		if(path[0] != '\0'){
 			const char lastChar = path[NBString_strLenBytes(path) - 1];
-			NBArray_addValueCopy(&state->usrIncludesStarts, UI32, state->usrIncludes.lenght);
+			NBArray_addValueCopy(&state->usrIncludesStarts, UI32, state->usrIncludes.length);
 			NBString_concat(&state->usrIncludes, path);
 			//Add "/" at the end if necesary
 			if(lastChar != '/' && lastChar != '\\') NBString_concatByte(&state->usrIncludes, '/');
@@ -284,7 +284,7 @@ BOOL SrcAnlzCodeCParser_addIncludePathSys(STSrcAnlzCodeCParser* state, const cha
 	if(path != NULL){
 		if(path[0] != '\0'){
 			const char lastChar = path[NBString_strLenBytes(path) - 1];
-			NBArray_addValueCopy(&state->sysIncludesStarts, UI32, state->sysIncludes.lenght);
+			NBArray_addValueCopy(&state->sysIncludesStarts, UI32, state->sysIncludes.length);
 			NBString_concat(&state->sysIncludes, path);
 			//Add "/" at the end if necesary
 			if(lastChar != '/' && lastChar != '\\') NBString_concatByte(&state->sysIncludes, '/');
@@ -368,10 +368,10 @@ BOOL SrcAnlzCodeCParser_scopePush(STSrcAnlzCodeCParser* state, STSrcAnlzCodeC* c
 				const STSrcAnlzTokn* oldTokenDef = NBArray_itmPtrAtIndex(&oldTop->acumTokens.defs, STSrcAnlzTokn, oldTop->acumTokens.defs.use - 1);
 				const char* oldTokenStr		= &oldTop->acumTokens.strBuff.str[oldTokenDef->iAtBuff];
 				const SI32 oldTokenLen		= NBString_strLenBytes(oldTokenStr);
-				NBASSERT(oldTop->acumTokens.strBuff.lenght == (oldTokenDef->iAtBuff + oldTokenLen + 1)) //must be the last string in buffer
+				NBASSERT(oldTop->acumTokens.strBuff.length == (oldTokenDef->iAtBuff + oldTokenLen + 1)) //must be the last string in buffer
 				//Add copy to new top
 				STSrcAnlzTokn newToken;
-				newToken.iAtBuff			= scope.acumTokens.strBuff.lenght;
+				newToken.iAtBuff			= scope.acumTokens.strBuff.length;
 				newToken.sintxPart			= oldTokenDef->sintxPart;
 				newToken.isSpacePreceded	= oldTokenDef->isSpacePreceded;
 				NBArray_addValue(&scope.acumTokens.defs, newToken);
@@ -433,11 +433,11 @@ BOOL SrcAnlzCodeCParser_scopePop(STSrcAnlzCodeCParser* state, STSrcAnlzCodeC* co
 			const STSrcAnlzTokn* oldTokenDef = NBArray_itmPtrAtIndex(&oldTop->acumTokens.defs, STSrcAnlzTokn, oldTop->acumTokens.defs.use - 1);
 			const char* oldTokenStr		= &oldTop->acumTokens.strBuff.str[oldTokenDef->iAtBuff];
 			const SI32 oldTokenLen		= NBString_strLenBytes(oldTokenStr);
-			NBASSERT(oldTop->acumTokens.strBuff.lenght == (oldTokenDef->iAtBuff + oldTokenLen + 1)) //must be the last string in buffer
+			NBASSERT(oldTop->acumTokens.strBuff.length == (oldTokenDef->iAtBuff + oldTokenLen + 1)) //must be the last string in buffer
 			//Add copy to new top
 			STSrcAnlzCodeCParseScope* newTop = NBArray_itmPtrAtIndex(&state->parseScopesStack, STSrcAnlzCodeCParseScope, state->parseScopesStack.use - 2);
 			STSrcAnlzTokn newToken;
-			newToken.iAtBuff			= newTop->acumTokens.strBuff.lenght;
+			newToken.iAtBuff			= newTop->acumTokens.strBuff.length;
 			newToken.sintxPart			= oldTokenDef->sintxPart;
 			newToken.isSpacePreceded	= oldTokenDef->isSpacePreceded;
 			NBArray_addValue(&newTop->acumTokens.defs, newToken);
@@ -1129,8 +1129,8 @@ BOOL SrcAnlzParser_sintaxFlushPProcInvocTokens(STSrcAnlzCodeCParser* state, STSr
 						NBString_concat(&mergedStr, &state->macros.valsTokns.tokns.strBuff.str[rToknDef->iAtBuff]);
 					}
 					//Feed
-					NBASSERT(mergedStr.lenght > 0)
-					if(mergedStr.lenght > 0){
+					NBASSERT(mergedStr.length > 0)
+					if(mergedStr.length > 0){
 						PRINTF_INFO("MACRO##, feeding merged content: '%s'\n", mergedStr.str);
 						//push stream scope
 						if(!(*state->itfs->parserItf->streamPushFunc)(state->itfs->parserItf, ENSrcAnlzParserSrcType_Virtual, NULL)){
@@ -1138,7 +1138,7 @@ BOOL SrcAnlzParser_sintaxFlushPProcInvocTokens(STSrcAnlzCodeCParser* state, STSr
 							r = FALSE; NBASSERT(FALSE)
 						} else {
 							//feed stream
-							if(!(*state->itfs->parserItf->streamFeedFunc)(state->itfs->parserItf, (const char*)mergedStr.str, (UI32)mergedStr.lenght)){
+							if(!(*state->itfs->parserItf->streamFeedFunc)(state->itfs->parserItf, (const char*)mergedStr.str, (UI32)mergedStr.length)){
 								r = FALSE; NBASSERT(FALSE)
 							}
 							//pop stream scope
@@ -1350,7 +1350,7 @@ BOOL SrcAnlzCodeCParser_feedTokn(STSrcAnlzCodeCParser* state, const char* toknSt
 					}
 					if(addToken){
 						STSrcAnlzTokn newToken;
-						newToken.iAtBuff	= state->acumTokensCur->strBuff.lenght;
+						newToken.iAtBuff	= state->acumTokensCur->strBuff.length;
 						newToken.sintxPart	= partFound;
 						newToken.isSpacePreceded = isSpacePreceded;
 						NBArray_addValue(&state->acumTokensCur->defs, newToken);
@@ -1402,7 +1402,7 @@ BOOL SrcAnlzCodeCParser_feedTokn(STSrcAnlzCodeCParser* state, const char* toknSt
 									} else if(!(firstChar == ')' && toknStrSz == 1 && pState->parentesisDepth == 1)){
 										//Add param token
 										STSrcAnlzTokn newToken;
-										newToken.iAtBuff	= pState->strBuff.lenght;
+										newToken.iAtBuff	= pState->strBuff.length;
 										newToken.sintxPart	= partFound;
 										newToken.isSpacePreceded = isSpacePreceded;
 										NBArray_addValue(&pState->tokens, newToken);
@@ -1426,7 +1426,7 @@ BOOL SrcAnlzCodeCParser_feedTokn(STSrcAnlzCodeCParser* state, const char* toknSt
 											if(pState->paramsRanges.use == 1 && prevRange->count == 0){
 												//Must be two tokens only: '(' + ')'
 												NBASSERT(pState->tokens.use == 0)
-												NBASSERT(pState->strBuff.lenght == 0)
+												NBASSERT(pState->strBuff.length == 0)
 												NBArray_empty(&pState->paramsRanges);
 											}
 										}
@@ -1515,7 +1515,7 @@ BOOL SrcAnlzCodeCParser_feedTokn(STSrcAnlzCodeCParser* state, const char* toknSt
 													NBASSERT(state->macros.valsTokns.tokns.defs.use == state->macros.valsTokns.iParamRefs.use)
 													const STSrcAnlzTokn* toknDef = NBArray_itmPtrAtIndex(&state->macros.valsTokns.tokns.defs, STSrcAnlzTokn, macroDef->valTokensFirst + i);
 													const char* toknStr2	= &state->macros.valsTokns.tokns.strBuff.str[toknDef->iAtBuff];
-													if(strTmp.lenght != 0) NBString_concatByte(&strTmp, ' ');
+													if(strTmp.length != 0) NBString_concatByte(&strTmp, ' ');
 													NBString_concat(&strTmp, toknStr2);
 												}
 												PRINTF_INFO("Macro reference, found: '%s', direct translation to %d tokens '%s' ...\n", toknStr, macroDef->valTokensCount, strTmp.str);
@@ -1546,7 +1546,7 @@ BOOL SrcAnlzCodeCParser_feedTokn(STSrcAnlzCodeCParser* state, const char* toknSt
 													NBASSERT(state->macros.valsTokns.tokns.defs.use == state->macros.valsTokns.iParamRefs.use)
 													const STSrcAnlzTokn* toknDef = NBArray_itmPtrAtIndex(&state->macros.valsTokns.tokns.defs, STSrcAnlzTokn, macroDef->valTokensFirst + i);
 													const char* toknStr2	= &state->macros.valsTokns.tokns.strBuff.str[toknDef->iAtBuff];
-													if(strTmp.lenght != 0) NBString_concatByte(&strTmp, ' ');
+													if(strTmp.length != 0) NBString_concatByte(&strTmp, ' ');
 													NBString_concat(&strTmp, toknStr2);
 												}
 												PRINTF_INFO("Macro reference, call found: '%s'(+%d paramns), waiting for params before translating to %d tokens '%s'...\n", toknStr, macroDef->params.count, macroDef->valTokensCount, strTmp.str);
@@ -1572,7 +1572,7 @@ BOOL SrcAnlzCodeCParser_feedTokn(STSrcAnlzCodeCParser* state, const char* toknSt
 								PRINTF_INFO("Code token (pp-%s) '%s'\n", (curBlockCodeIsActive ? "on" : "off"), toknStr);
 								const UI32 iTokenDef = state->acumTokensCur->defs.use;
 								STSrcAnlzTokn newToken;
-								newToken.iAtBuff	= state->acumTokensCur->strBuff.lenght;
+								newToken.iAtBuff	= state->acumTokensCur->strBuff.length;
 								newToken.sintxPart	= partFound;
 								newToken.isSpacePreceded = isSpacePreceded;
 								NBArray_addValue(&state->acumTokensCur->defs, newToken);

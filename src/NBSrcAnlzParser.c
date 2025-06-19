@@ -223,7 +223,7 @@ BOOL SrcAnlzParser_processFilePath(STSrcAnlzParser* state, const char* filePath)
 				//A source file shall not end in a partial preprocessing token or in a partial comment.
 				//Fix: push a newLine char at end of file (if necesary).
 				//-----------------------
-				/*if(r && (topStream->toknParser.lastStreamChar != '\n' || topStream->toknParser.strAcum2.lenght > 0)){
+				/*if(r && (topStream->toknParser.lastStreamChar != '\n' || topStream->toknParser.strAcum2.length > 0)){
 					PRINTF_WARNING("File's last char is not a newLine (adding newLine to stream): '%s'.\n", filePath);
 					char lastChar = '\n';
 					if(!SrcAnlzParser_streamFeed(state, &lastChar, sizeof(lastChar))){
@@ -280,7 +280,7 @@ BOOL SrcAnlzParser_processStream(STSrcAnlzParser* state, FILE* stream){
 				//A source file shall not end in a partial preprocessing token or in a partial comment.
 				//Fix: push a newLine char at end of file (if necesary).
 				//-----------------------
-				/*if(r && (topStream->toknParser.lastStreamChar != '\n' || topStream->toknParser.strAcum2.lenght > 0)){
+				/*if(r && (topStream->toknParser.lastStreamChar != '\n' || topStream->toknParser.strAcum2.length > 0)){
 					PRINTF_WARNING("File's last char is not a newLine (adding newLine to stream): '%s'.\n", NULL);
 					char lastChar = '\n';
 					if(!SrcAnlzParser_streamFeed(state, &lastChar, sizeof(lastChar))){
@@ -324,7 +324,7 @@ BOOL SrcAnlzParser_processLines(STSrcAnlzParser* state, const char* strLines){
 						//A source file shall not end in a partial preprocessing token or in a partial comment.
 						//Fix: push a newLine char at end of file (if necesary).
 						//-----------------------
-						/*if(topStream->toknParser.lastStreamChar != '\n' || topStream->toknParser.strAcum2.lenght > 0){
+						/*if(topStream->toknParser.lastStreamChar != '\n' || topStream->toknParser.strAcum2.length > 0){
 							PRINTF_WARNING("ContentLines's last char is not a newLine (adding newLine to stream).\n");
 							char lastChar = '\n';
 							if(!SrcAnlzParser_streamFeed(state, &lastChar, sizeof(lastChar))){
