@@ -34,7 +34,7 @@
     <ClInclude Include="..\..\..\include\NBToolPackageMaker.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\sys-nbframework\lib-nbframework-src\projects\visual-studio\nbframework\nbframework.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\sys-nbframework\sys-nbframework-src\projects\visual-studio\nbframework\nbframework.vcxproj">
       <Project>{7fddbc68-b369-4346-ba6e-7c1ce2ff732f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\lib-auframework-src\projects\visual-studio\auframework\lib-auframework.vcxproj">
@@ -128,7 +128,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\lib-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\sys-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\lib-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\sys-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,7 +162,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\lib-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\sys-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -179,7 +179,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\lib-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\sys-nbframework\sys-nbframework-src\include;$(ProjectDir)..\..\..\..\lib-auframework-src\include;$(ProjectDir)..\..\..\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
